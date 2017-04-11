@@ -13,7 +13,7 @@ public class YesButton extends MonitorButton
         super();
         getImage().drawString("YES",10,20);
     }
-    public void getButtonValue(){
+    public String getButtonValue(){
         return this.text;
     }
     /**
