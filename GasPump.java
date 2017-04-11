@@ -12,6 +12,7 @@ public class GasPump extends Actor
         GreenfootImage image = getImage();
         image.scale( 120, 120 );  
         image.drawRect(0,0,119,119);
+        setImage(image);
     }
     /**
      * Act - do whatever the GasPump wants to do. This method is called whenever
@@ -20,5 +21,12 @@ public class GasPump extends Actor
     public void act() 
     {
         // Add your action code here.
+        if(Greenfoot.mousePressed(this)){
+            World world = getWorld();
+            for(Display display: world.getObjects(Display.class)){
+                display.setState();
+                System.out.println("Testing");
+            }
+        }
     }    
 }
