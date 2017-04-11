@@ -33,8 +33,5 @@ public class MyWorld extends World
         Display display = new Display();
         addObject(display,310,149);
         display.setLocation(378,167);
-        Message message = new Message();
-        addObject(message,368,152);
-        message.setLocation(387,156);
     }
 }
