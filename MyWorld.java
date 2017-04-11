@@ -33,13 +33,5 @@ public class MyWorld extends World
         Display display = new Display();
         addObject(display,310,149);
         display.setLocation(378,167);
-        YesButton yesbutton = new YesButton();
-        addObject(yesbutton,104,253);
-        yesbutton.setLocation(196,278);
-        NoButton nobutton = new NoButton();
-        addObject(nobutton,175,229);
-        nobutton.setLocation(197,318);
-        yesbutton.setLocation(203,250);
-        nobutton.setLocation(203,298);
     }
 }
