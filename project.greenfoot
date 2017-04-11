@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Apr 11 00:30:22 PDT 2017
+#Tue Apr 11 00:54:29 PDT 2017
 target4.type=ClassTarget
 target8.showInterface=false
 dependency3.from=MyWorld
@@ -25,8 +25,8 @@ dependency4.type=UsesDependency
 target2.width=80
 target10.showInterface=false
 target5.name=MonitorButton
-target9.typeParameters=
 class.Display.superclass=greenfoot.Actor
+target9.typeParameters=
 version=3.0.0
 target6.type=ClassTarget
 class.GasPumpMachine.superclass=greenfoot.Actor
@@ -48,12 +48,12 @@ target7.showInterface=false
 target10.height=50
 class.Message.superclass=greenfoot.Actor
 dependency5.to=NoButton
-target8.typeParameters=
 target1.showInterface=false
+target8.typeParameters=
 target5.showInterface=false
+target6.width=80
 target9.y=0
 target7.type=ClassTarget
-target6.width=80
 target9.x=0
 target9.showInterface=false
 class.NoButton.superclass=MonitorButton
@@ -63,8 +63,8 @@ target8.y=0
 target8.x=0
 target7.typeParameters=
 target1.type=ClassTarget
-target7.y=0
 class.Button.superclass=greenfoot.Actor
+target7.y=0
 target7.x=0
 target7.name=MyWorld
 target6.y=0
