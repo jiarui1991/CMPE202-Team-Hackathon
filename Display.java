@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Display extends Actor
 {
-    private static String text = "Welcome!";
+    private static String text = "Welcome!Hello.";
     private static int size = 40;
     private static Color color = Color.BLACK;
     private static Color background = new Color(0, 0, 0, 0); 
