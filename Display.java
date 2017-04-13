@@ -13,7 +13,6 @@ public class Display extends Actor
     private static Color color = Color.BLACK;
     private static Color background = new Color(0, 0, 0, 0); 
     private static int state = 0; //state detemines display content, 0= default state, 1=state 1, 2=state 2, etc
-    
     /**Display constructor**/
     public Display(){
         GreenfootImage image = new GreenfootImage(300, 300);
@@ -21,6 +20,7 @@ public class Display extends Actor
         GreenfootImage textImage = new GreenfootImage(text, size, color, background);
         image.drawImage(textImage, 90, 100);
         setImage(image);
+        
     }
     
     /**refresh and redraw the display box and text message **/
@@ -49,6 +49,7 @@ public class Display extends Actor
     public int getState(){
         return state;
     }
+  
     /**
      * Act - do whatever the Display wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

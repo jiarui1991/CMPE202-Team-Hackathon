@@ -6,6 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
+
 public class MyWorld extends World
 {
     private static int w=800; //set width of world
@@ -33,14 +34,34 @@ public class MyWorld extends World
         Display display = new Display();
         addObject(display,310,149);
         display.setLocation(378,167);
-        YesButton yesbutton = new YesButton();
-        addObject(yesbutton,123,276);
-        yesbutton.setLocation(199,295);
-        NoButton nobutton = new NoButton();
-        addObject(nobutton,189,220);
-        nobutton.setLocation(170,385);
-        yesbutton.setLocation(206,230);
-        nobutton.setLocation(205,295);
-        yesbutton.setLocation(204,246);
+        
+        //demonstrate internally how to receive button value, you can remove it!
+        GasPumpMachine gaspumpmachine = new GasPumpMachine();
+        addObject(gaspumpmachine,723,87);
+        
+        //Initialize keypad
+        KeypadButton[] keypadbuttons = new KeypadButton[12];
+        for(int i=0;i<9;i++){
+            keypadbuttons[i] = new KeypadButton(Integer.toString(i+1));
+        }
+        keypadbuttons[9] = new KeypadButton("*");
+        keypadbuttons[10] = new KeypadButton("0");
+        keypadbuttons[11] = new KeypadButton("#");
+        for(int i=0;i<12;i++){
+            addObject(keypadbuttons[i],350 +(i%3)*31,400+ (i/3)*31);
+        }
+        //Initialize monitor button;
+        MonitorButton[] monitorbuttons = new MonitorButton[8];
+        for(int i=0;i<4;i++){//op1-4
+            monitorbuttons[i] = new MonitorButton("op" + Integer.toString(i+1));
+            addObject(monitorbuttons[i],180, 100+ i*50);
+        }
+        monitorbuttons[4] = new MonitorButton("fake");
+        monitorbuttons[5] = new MonitorButton("fake");
+        monitorbuttons[6] = new MonitorButton("yes");
+        monitorbuttons[7] = new MonitorButton("no");
+        for(int i=0;i<4;i++){
+           addObject(monitorbuttons[i+4],620, 100+ i*50);   
+        }
     }
 }

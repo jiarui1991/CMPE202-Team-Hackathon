@@ -8,9 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GasPumpMachine extends Actor
 {
+    String buttonVal = "";
     public GasPumpMachine(){
         GreenfootImage image = getImage() ;
         image.scale( 400, 400 ) ;
+    }
+    /*illustration to receive value button*/
+    public void receiveButton(String s){
+        this.buttonVal = s;
+        System.out.println("Button value received: " + buttonVal);
     }
     /**
      * Act - do whatever the GasPumpMachine wants to do. This method is called whenever
