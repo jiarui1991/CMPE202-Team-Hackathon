@@ -8,7 +8,7 @@
 ### Class Specifications:
 
 #### - MyWorld: 
-Declare the ui components to display in the greenfoot.
+Declares the ui components to display in the greenfoot.
 
 #### - GasPumpMachine: 
 You want to handle the logic part there. <br />
@@ -17,4 +17,10 @@ I have built a illustration on how to read value from buttons.
 
 #### - Button:
 Just ui components with string value assigned and click to trigger.
+
+#### - Display
+UI component responsible for displaying messages
+
+#### - GasPump
+Clicking gas pump image would trigger display to display different messages
 
