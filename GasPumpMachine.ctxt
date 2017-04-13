@@ -5,6 +5,7 @@ comment1.params=
 comment1.target=GasPumpMachine()
 comment2.params=s
 comment2.target=void\ receiveButton(java.lang.String)
+comment2.text=illustration\ to\ receive\ value\ button
 comment3.params=
 comment3.target=void\ act()
 comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ GasPumpMachine\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
