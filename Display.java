@@ -28,6 +28,38 @@ public class Display extends Actor
         GreenfootImage image = getImage();
         image.clear();
         image.drawRect(0,0, 299, 299);
+        GreenfootImage textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
+        switch(state){
+            case 0:
+                textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
+                image.drawImage(textImage, 90, 100);
+                break;
+            case 1:
+                 textImage = new GreenfootImage("Pumping Gas...", size, color, background);
+                 image.drawImage(textImage, 30, 100);
+                 break;
+            case 2:
+                textImage = new GreenfootImage("Print Receipt?", size, color, background);
+                image.drawImage(textImage, 40, 100);
+                break;
+            case 3:
+                textImage = new GreenfootImage("Thank you!\nPlease take\nyour receipt.", size, color, background);
+                image.drawImage(textImage, 40, 100);
+                break;
+            case 4:
+                textImage = new GreenfootImage("Thank you!", size, color, background);
+                image.drawImage(textImage, 40, 100);
+                break;
+            case 5:
+                textImage = new GreenfootImage("Enter Zipcode", size, color, background);
+                image.drawImage(textImage, 40, 100);
+                break;
+            default:
+                break;
+        }
+
+
+ /*       
         if(state==0){ //welcome screen
             GreenfootImage textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
             image.drawImage(textImage, 90, 100);
@@ -48,7 +80,7 @@ public class Display extends Actor
             GreenfootImage textImage = new GreenfootImage("Thank you!", size, color, background);
             image.drawImage(textImage, 40, 100);
         }
-    }
+ */   }
     
     public void setState(int s){
         state = s;

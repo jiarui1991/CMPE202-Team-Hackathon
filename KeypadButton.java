@@ -15,5 +15,33 @@ public class KeypadButton extends Button
         getImage().drawString(text,10,20);
         setButtonVal(text);
     }
+
+    public void act(){
+
+        if(Greenfoot.mousePressed(this)){
+            World world = getWorld();
+            String s = getButtonVal();
+
+            for(Display display: world.getObjects(Display.class)){
+                int state = display.getState();
+
+                switch(state){
+                    case 5:
+                        if(s.equals("*"))
+                            display.setState(1);
+                        break;
+                    default:
+                        //display.setState(0);
+                        break;
+
+                }
+            }
+            for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
+               
+               gm.receiveButton(s);
+            }
+        }    
+  }
+
     
 }
