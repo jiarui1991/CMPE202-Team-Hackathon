@@ -37,7 +37,15 @@ public class Display extends Actor
             image.drawImage(textImage, 30, 100);
         }
         else if(state == 2){
+            GreenfootImage textImage = new GreenfootImage("Print Receipt?", size, color, background);
+            image.drawImage(textImage, 40, 100);
+        }
+        else if(state == 3){
             GreenfootImage textImage = new GreenfootImage("Thank you!\nPlease take\nyour receipt.", size, color, background);
+            image.drawImage(textImage, 40, 100);
+        }
+        else if(state == 4){
+            GreenfootImage textImage = new GreenfootImage("Thank you!", size, color, background);
             image.drawImage(textImage, 40, 100);
         }
     }
@@ -58,5 +66,6 @@ public class Display extends Actor
     {
         // Add your action code here.
         refresh();
+
     }    
 }
