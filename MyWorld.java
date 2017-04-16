@@ -34,6 +34,9 @@ public class MyWorld extends World
         Display display = new Display();
         addObject(display,310,149);
         display.setLocation(378,167);
+
+        Creditcard creditcard = new Creditcard();
+        addObject(creditcard, 677, 400);
         
         //demonstrate internally how to receive button value, you can remove it!
         GasPumpMachine gaspumpmachine = new GasPumpMachine();
