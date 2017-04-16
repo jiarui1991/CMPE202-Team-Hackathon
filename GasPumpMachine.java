@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GasPumpMachine extends Actor
 {
+    private static int state = 0; //state detemines display content
+
     String buttonVal = "";
     public GasPumpMachine(){
         GreenfootImage image = getImage() ;
@@ -18,6 +20,15 @@ public class GasPumpMachine extends Actor
         this.buttonVal = s;
         System.out.println("Button value received: " + buttonVal);
     }
+
+    public void setState(int s){
+        state = s;
+    }
+    
+    public int getState(){
+        return state;
+    }
+    
     /**
      * Act - do whatever the GasPumpMachine wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

@@ -12,7 +12,6 @@ public class Display extends Actor
     private static int size = 40;
     private static Color color = Color.BLACK;
     private static Color background = new Color(0, 0, 0, 0); 
-    private static int state = 0; //state detemines display content, 0= default state, 1=state 1, 2=state 2, etc
     /**Display constructor**/
     public Display(){
         GreenfootImage image = new GreenfootImage(300, 300);
@@ -29,65 +28,40 @@ public class Display extends Actor
         image.clear();
         image.drawRect(0,0, 299, 299);
         GreenfootImage textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
-        switch(state){
-            case 0:
-                textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
-                image.drawImage(textImage, 90, 100);
-                break;
-            case 1:
-                 textImage = new GreenfootImage("Pumping Gas...", size, color, background);
-                 image.drawImage(textImage, 30, 100);
-                 break;
-            case 2:
-                textImage = new GreenfootImage("Print Receipt?", size, color, background);
-                image.drawImage(textImage, 40, 100);
-                break;
-            case 3:
-                textImage = new GreenfootImage("Thank you!\nPlease take\nyour receipt.", size, color, background);
-                image.drawImage(textImage, 40, 100);
-                break;
-            case 4:
-                textImage = new GreenfootImage("Thank you!", size, color, background);
-                image.drawImage(textImage, 40, 100);
-                break;
-            case 5:
-                textImage = new GreenfootImage("Enter Zipcode", size, color, background);
-                image.drawImage(textImage, 40, 100);
-                break;
-            default:
-                break;
+        
+        World world = getWorld();
+        for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class))
+        {
+            int state = gm.getState();
+            switch(state){
+                case 0:
+                    textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
+                    image.drawImage(textImage, 90, 100);
+                    break;
+                case 1:
+                     textImage = new GreenfootImage("Pumping Gas...", size, color, background);
+                     image.drawImage(textImage, 30, 100);
+                     break;
+                case 2:
+                    textImage = new GreenfootImage("Print Receipt?", size, color, background);
+                    image.drawImage(textImage, 40, 100);
+                    break;
+                case 3:
+                    textImage = new GreenfootImage("Thank you!\nPlease take\nyour receipt.", size, color, background);
+                    image.drawImage(textImage, 40, 100);
+                    break;
+                case 4:
+                    textImage = new GreenfootImage("Thank you!", size, color, background);
+                    image.drawImage(textImage, 40, 100);
+                    break;
+                case 5:
+                    textImage = new GreenfootImage("Enter Zipcode", size, color, background);
+                    image.drawImage(textImage, 40, 100);
+                    break;
+                default:
+                    break;
+            }
         }
-
-
- /*       
-        if(state==0){ //welcome screen
-            GreenfootImage textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
-            image.drawImage(textImage, 90, 100);
-        }
-        else if(state == 1){ //pumping gas screen
-            GreenfootImage textImage = new GreenfootImage("Pumping Gas...", size, color, background);
-            image.drawImage(textImage, 30, 100);
-        }
-        else if(state == 2){
-            GreenfootImage textImage = new GreenfootImage("Print Receipt?", size, color, background);
-            image.drawImage(textImage, 40, 100);
-        }
-        else if(state == 3){
-            GreenfootImage textImage = new GreenfootImage("Thank you!\nPlease take\nyour receipt.", size, color, background);
-            image.drawImage(textImage, 40, 100);
-        }
-        else if(state == 4){
-            GreenfootImage textImage = new GreenfootImage("Thank you!", size, color, background);
-            image.drawImage(textImage, 40, 100);
-        }
- */   }
-    
-    public void setState(int s){
-        state = s;
-    }
-    
-    public int getState(){
-        return state;
     }
   
     /**
@@ -98,6 +72,5 @@ public class Display extends Actor
     {
         // Add your action code here.
         refresh();
-
     }    
 }

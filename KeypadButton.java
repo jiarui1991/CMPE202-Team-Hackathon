@@ -22,16 +22,16 @@ public class KeypadButton extends Button
             World world = getWorld();
             String s = getButtonVal();
 
-            for(Display display: world.getObjects(Display.class)){
-                int state = display.getState();
+            for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
+                int state = gm.getState();
 
                 switch(state){
                     case 5:
                         if(s.equals("*"))
-                            display.setState(1);
+                            gm.setState(1);
                         break;
                     default:
-                        //display.setState(0);
+                        //gm.setState(0);
                         break;
 
                 }

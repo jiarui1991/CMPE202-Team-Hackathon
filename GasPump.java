@@ -23,15 +23,15 @@ public class GasPump extends Actor
         // Add your action code here.
         if(Greenfoot.mousePressed(this)){
             World world = getWorld();
-            for(Display display: world.getObjects(Display.class)){
-                if(display.getState()==0){
-                    display.setState(1);
+            for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
+                if(gm.getState()==0){
+                    gm.setState(1);
                 }
-                else if(display.getState()==1){
-                    display.setState(2);
+                else if(gm.getState()==1){
+                    gm.setState(2);
                 }
-                else if(display.getState()==2){
-                    display.setState(0);
+                else if(gm.getState()==2){
+                    gm.setState(0);
                 }
                 //System.out.println("Testing");
             }

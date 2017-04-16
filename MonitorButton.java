@@ -22,57 +22,37 @@ public class MonitorButton extends Button
             World world = getWorld();
             String s = getButtonVal();
 
-            for(Display display: world.getObjects(Display.class)){
-                int state = display.getState();
+            for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
+                int state = gm.getState();
 
                 switch(state){
                     case 0:
-                        display.setState(5);
+                        gm.setState(5);
                         break;
                     case 1:
-                        display.setState(2);
+                        gm.setState(2);
                         break;
                     case 2:
                         if(s.equals("yes"))
-                            display.setState(3);
+                            gm.setState(3);
                         else if(s.equals("no"))
-                            display.setState(4);
+                            gm.setState(4);
                         else
-                            display.setState(2);
+                            gm.setState(2);
                         break;
                     case 3:
-                        display.setState(0);
+                        gm.setState(0);
                         break;
                     case 4:
-                        display.setState(0);
+                        gm.setState(0);
                         break;
                     default:
-                        //display.setState(0);
+                        //gm.setState(0);
                         break;
 
                 }
-
-
- /*               if(display.getState()==0){
-                    display.setState(1);
-                }
-                else if(display.getState()==1){
-                    display.setState(2);
-                }
-                else if(display.getState()==2){
-
-                    if(s.equals("yes"))
-                        display.setState(3);
-                    else if(s.equals("no"))
-                        display.setState(4);
-                    else
-                        display.setState(2);
-                }
-                else
-                    display.setState(0);
-*/                
+               
             }
-            //System.out.println("Testing");
 
             for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
                
