@@ -37,6 +37,15 @@ public class MyWorld extends World
 
         Creditcard creditcard = new Creditcard();
         addObject(creditcard, 677, 400);
+
+        Gas87 gas87 = new Gas87();
+        addObject(gas87, 320, 350);
+        
+        Gas89 gas89 = new Gas89();
+        addObject(gas89, 380, 350);
+        
+        Gas91 gas91 = new Gas91();
+        addObject(gas91, 440, 350);
         
         //demonstrate internally how to receive button value, you can remove it!
         GasPumpMachine gaspumpmachine = new GasPumpMachine();
@@ -47,9 +56,9 @@ public class MyWorld extends World
         for(int i=0;i<9;i++){
             keypadbuttons[i] = new KeypadButton(Integer.toString(i+1));
         }
-        keypadbuttons[9] = new KeypadButton("*");
+        keypadbuttons[9] = new KeypadButton("cancel");
         keypadbuttons[10] = new KeypadButton("0");
-        keypadbuttons[11] = new KeypadButton("#");
+        keypadbuttons[11] = new KeypadButton("enter");
         for(int i=0;i<12;i++){
             addObject(keypadbuttons[i],350 +(i%3)*31,400+ (i/3)*31);
         }

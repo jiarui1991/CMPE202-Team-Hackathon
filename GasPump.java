@@ -24,16 +24,9 @@ public class GasPump extends Actor
         if(Greenfoot.mousePressed(this)){
             World world = getWorld();
             for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
-                if(gm.getState()==0){
-                    gm.setState(1);
-                }
-                else if(gm.getState()==1){
-                    gm.setState(2);
-                }
-                else if(gm.getState()==2){
-                    gm.setState(0);
-                }
-                //System.out.println("Testing");
+
+                gm.receiveButton("gas_pump");
+                gm.refresh();
             }
         }
     }    

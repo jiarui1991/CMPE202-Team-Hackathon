@@ -32,32 +32,38 @@ public class Display extends Actor
         World world = getWorld();
         for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class))
         {
-            int state = gm.getState();
+            String state = gm.getState();
+            String message = gm.getMessage();
             switch(state){
-                case 0:
+                case "welcome":
                     textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
                     image.drawImage(textImage, 90, 100);
                     break;
-                case 1:
-                     textImage = new GreenfootImage("Pumping Gas...", size, color, background);
-                     image.drawImage(textImage, 30, 100);
-                     break;
-                case 2:
+                case "zipcode":
+                    textImage = new GreenfootImage("Enter Zipcode\n" + message, size, color, background);
+                    image.drawImage(textImage, 40, 100);
+                    break;
+                case "select_gas":
+                    textImage = new GreenfootImage("Select Gas Type" + message, size, color, background);
+                    image.drawImage(textImage, 20, 100);
+                    break;
+                case "pump_gas":
+                    textImage = new GreenfootImage("Pumping Gas...\n" + message, size, color, background);
+                    image.drawImage(textImage, 30, 100);
+                    break;
+                case "print_receipt":
                     textImage = new GreenfootImage("Print Receipt?", size, color, background);
                     image.drawImage(textImage, 40, 100);
                     break;
-                case 3:
+                case "thankyou_1":
                     textImage = new GreenfootImage("Thank you!\nPlease take\nyour receipt.", size, color, background);
                     image.drawImage(textImage, 40, 100);
                     break;
-                case 4:
+                case "thankyou_2":
                     textImage = new GreenfootImage("Thank you!", size, color, background);
                     image.drawImage(textImage, 40, 100);
                     break;
-                case 5:
-                    textImage = new GreenfootImage("Enter Zipcode", size, color, background);
-                    image.drawImage(textImage, 40, 100);
-                    break;
+                
                 default:
                     break;
             }

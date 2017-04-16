@@ -1,21 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Creditcard here.
+ * Write a description of class Gas89 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Creditcard extends Actor
+public class Gas89 extends GasTypeButton
 {
     /**
-     * Act - do whatever the Creditcard wants to do. This method is called whenever
+     * Act - do whatever the Gas89 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Creditcard(){
+    public Gas89(){
         GreenfootImage image = getImage();
-        image.scale( 100, 60 );  
-        image.drawRect(0,0,99,59);
+        image.scale( 40, 40 );  
+        image.drawRect(0,0,39,39);
         setImage(image);
     }
 
@@ -26,7 +26,7 @@ public class Creditcard extends Actor
             World world = getWorld();
             for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
 
-                gm.receiveButton("credit_card");
+                gm.receiveButton("#89");
                 gm.refresh();
             }
         }

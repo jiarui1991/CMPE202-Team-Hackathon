@@ -8,12 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GasPumpMachine extends Actor
 {
-    private static int state = 0; //state detemines display content
+    private static String state = "welcome"; //state detemines display content
+    private static String message = "";
 
     String buttonVal = "";
     public GasPumpMachine(){
         GreenfootImage image = getImage() ;
         image.scale( 400, 400 ) ;
+        message = "";
+        state = "welcome";
     }
     /*illustration to receive value button*/
     public void receiveButton(String s){
@@ -21,47 +24,72 @@ public class GasPumpMachine extends Actor
         System.out.println("Button value received: " + buttonVal);
     }
 
-    public void setState(int s){
+    public void setState(String s){
         state = s;
     }
     
-    public int getState(){
+    public String getState(){
         return state;
+    }
+
+    public String getMessage(){
+        return message;
     }
 
     public void refresh(){
 
-        System.out.println("current state is: " + state);
-
         switch(state){
-            case 0:
-                setState(5);
+            case "welcome":
+                if(buttonVal.equals("credit_card")){
+                    setState("zipcode");
+                    message = "";
+                }
                 break;
-            case 1:
-                setState(2);
+            case "zipcode":
+                if(buttonVal.equals("enter")){
+                    setState("select_gas");
+                    message = "";    
+                }
+                else if(buttonVal.equals("cancel")){
+                    setState("welcome");
+                    message = "";
+                }
+                else if(Integer.parseInt(buttonVal) >= 0 &&
+                        Integer.parseInt(buttonVal) <= 9)
+                {
+                    message += buttonVal;
+                    //System.out.println(message);
+                }
                 break;
-            case 2:
+            case "select_gas":
+                if(buttonVal.equals("#87") || buttonVal.equals("#89") ||
+                   buttonVal.equals("#91"))
+                {
+                    message += buttonVal;
+                    setState("pump_gas");
+                }
+                break;
+            case "pump_gas":
+                if(buttonVal.equals("gas_pump"))
+                    setState("print_receipt");
+                break;
+            case "print_receipt":
                 if(buttonVal.equals("yes"))
-                    setState(3);
+                    setState("thankyou_1");
                 else if(buttonVal.equals("no"))
-                    setState(4);
+                    setState("thankyou_2");
                 else
-                    setState(2);
+                    setState("print_receipt");
                 break;
-            case 3:
-                setState(0);
+            case "thankyou_1":
+                setState("welcome");
                 break;
-            case 4:
-                setState(0);
+            case "thankyou_2":
+                setState("welcome");
                 break;
-            case 5:
-                if(buttonVal.equals("*"))
-                    setState(1);
-                    break;
             default:
-                setState(0);
+                setState("welcome");
                 break;
-
         }
     }
 
