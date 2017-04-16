@@ -23,40 +23,8 @@ public class MonitorButton extends Button
             String s = getButtonVal();
 
             for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
-                int state = gm.getState();
-
-                switch(state){
-                    case 0:
-                        gm.setState(5);
-                        break;
-                    case 1:
-                        gm.setState(2);
-                        break;
-                    case 2:
-                        if(s.equals("yes"))
-                            gm.setState(3);
-                        else if(s.equals("no"))
-                            gm.setState(4);
-                        else
-                            gm.setState(2);
-                        break;
-                    case 3:
-                        gm.setState(0);
-                        break;
-                    case 4:
-                        gm.setState(0);
-                        break;
-                    default:
-                        //gm.setState(0);
-                        break;
-
-                }
-               
-            }
-
-            for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
-               
                gm.receiveButton(s);
+               gm.refresh();
             }
         }
     }

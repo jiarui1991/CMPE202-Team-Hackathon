@@ -21,13 +21,13 @@ public class Button extends Actor
      */
     public void act() 
     {
-       if(Greenfoot.mousePressed(this)){
-           World world = getWorld();
-           for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
-               String s = getButtonVal();
-               gm.receiveButton(s);
-           }
-        } // Add your action code here.
+       // if(Greenfoot.mousePressed(this)){
+       //     World world = getWorld();
+       //     for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
+       //         String s = getButtonVal();
+       //         gm.receiveButton(s);
+       //     }
+       //  } // Add your action code here.
     }        
 }
 

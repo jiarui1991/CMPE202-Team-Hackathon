@@ -22,23 +22,9 @@ public class KeypadButton extends Button
             World world = getWorld();
             String s = getButtonVal();
 
-            for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
-                int state = gm.getState();
-
-                switch(state){
-                    case 5:
-                        if(s.equals("*"))
-                            gm.setState(1);
-                        break;
-                    default:
-                        //gm.setState(0);
-                        break;
-
-                }
-            }
-            for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
-               
+            for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){             
                gm.receiveButton(s);
+               gm.refresh();
             }
         }    
   }
