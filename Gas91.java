@@ -13,7 +13,7 @@ public class Gas91 extends GasTypeButton
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Gas91(){
-        GreenfootImage image = getImage();
+        GreenfootImage image = new GreenfootImage("type_91.png");
         image.scale( 40, 40 );  
         image.drawRect(0,0,39,39);
         setImage(image);
@@ -25,7 +25,6 @@ public class Gas91 extends GasTypeButton
         if(Greenfoot.mousePressed(this)){
             World world = getWorld();
             for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class)){
-
                 gm.receiveButton("#91");
                 gm.refresh();
             }

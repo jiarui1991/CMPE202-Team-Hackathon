@@ -46,19 +46,22 @@ public class GasPumpMachine extends Actor
                 }
                 break;
             case "zipcode":
-                if(buttonVal.equals("enter")){
-                    setState("select_gas");
-                    message = "";    
-                }
-                else if(buttonVal.equals("cancel")){
-                    setState("welcome");
-                    message = "";
-                }
-                else if(Integer.parseInt(buttonVal) >= 0 &&
-                        Integer.parseInt(buttonVal) <= 9)
-                {
-                    message += buttonVal;
-                    //System.out.println(message);
+                if (buttonVal.equals("enter") || buttonVal.equals("cancel") || buttonVal.matches("[-+]?\\d*\\.?\\d+")) {
+                    if(buttonVal.equals("enter")){
+                        setState("select_gas");
+                        message = "";    
+                    }
+                    else if(buttonVal.equals("cancel")){
+                        setState("welcome");
+                        message = "";
+                    }
+                    else if(Integer.parseInt(buttonVal) >= 0 &&
+                            Integer.parseInt(buttonVal) <= 9)
+                    {
+                        if (message.length() != 5)
+                            message += buttonVal;
+                        // System.out.println(message);
+                    }
                 }
                 break;
             case "select_gas":
@@ -71,7 +74,10 @@ public class GasPumpMachine extends Actor
                 break;
             case "pump_gas":
                 if(buttonVal.equals("gas_pump"))
-                    setState("print_receipt");
+                    setState("car_wash");
+                break;
+            case "car_wash":
+                setState("print_receipt");
                 break;
             case "print_receipt":
                 if(buttonVal.equals("yes"))

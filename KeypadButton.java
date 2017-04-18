@@ -12,7 +12,7 @@ public class KeypadButton extends Button
         GreenfootImage image = new GreenfootImage(31, 31);
         image.drawRect(0, 0, 30, 30);
         setImage(image);
-        getImage().drawString(text,10,20);
+        getImage().drawString(text, 10, 20);
         setButtonVal(text);
     }
 

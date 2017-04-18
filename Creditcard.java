@@ -13,7 +13,7 @@ public class Creditcard extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Creditcard(){
-        GreenfootImage image = getImage();
+        GreenfootImage image = new GreenfootImage("credit_card.png");
         image.scale( 100, 60 );  
         image.drawRect(0,0,99,59);
         setImage(image);

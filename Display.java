@@ -51,6 +51,10 @@ public class Display extends Actor
                     textImage = new GreenfootImage("Pumping Gas...\n" + message, size, color, background);
                     image.drawImage(textImage, 30, 100);
                     break;
+                case "car_wash":
+                    textImage = new GreenfootImage("Need a car wash?", size, color, background);
+                    image.drawImage(textImage, 10, 100);
+                    break;
                 case "print_receipt":
                     textImage = new GreenfootImage("Print Receipt?", size, color, background);
                     image.drawImage(textImage, 40, 100);
