@@ -62,10 +62,18 @@ public class Display extends Actor
                 case "car_wash":
                     textImage = new GreenfootImage("Need a car wash?", size, color, background);
                     image.drawImage(textImage, 10, 100);
+                    textImage = new GreenfootImage("Yes", 20, color, background);
+                    image.drawImage(textImage, 260, 165);
+                    textImage = new GreenfootImage("No", 20, color, background);
+                    image.drawImage(textImage, 260, 210);
                     break;
                 case "print_receipt":
                     textImage = new GreenfootImage("Print Receipt?", size, color, background);
                     image.drawImage(textImage, 40, 100);
+                    textImage = new GreenfootImage("Yes", 20, color, background);
+                    image.drawImage(textImage, 260, 165);
+                    textImage = new GreenfootImage("No", 20, color, background);
+                    image.drawImage(textImage, 260, 210);
                     break;
                 case "thankyou_1":
                     textImage = new GreenfootImage("Thank you!\nPlease take\nyour receipt.", size, color, background);
@@ -73,6 +81,10 @@ public class Display extends Actor
                     break;
                 case "thankyou_2":
                     textImage = new GreenfootImage("Thank you!", size, color, background);
+                    image.drawImage(textImage, 40, 100);
+                    break;
+                case "thankyou_3":
+                    textImage = new GreenfootImage("Thank you!\n Enjoy your\n car wash", size, color, background);
                     image.drawImage(textImage, 40, 100);
                     break;
                 

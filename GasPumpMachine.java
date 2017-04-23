@@ -49,23 +49,26 @@ public class GasPumpMachine extends Actor
                     message = "";
                 }
                 break;
+
             case "membership":
                 if(buttonVal.equals("credit_card"))
                       setState("zipcode");
                 else if(buttonVal.equals("restart"))
                       setState("welcome");
                 break;
+
             case "zipcode":
-                if (buttonVal.equals("enter") || buttonVal.equals("cancel") || buttonVal.matches("[-+]?\\d*\\.?\\d+")) {
-                    if(buttonVal.equals("enter")){
-                        setState("select_gas");
-                        message = "";    
-                    }
-                    else if(buttonVal.equals("cancel")){
-                        setState("zipcode");
-                        message = "";
-                    }
-                    else if(Integer.parseInt(buttonVal) >= 0 &&
+                //if (buttonVal.equals("enter") || buttonVal.equals("cancel") || buttonVal.matches("[-+]?\\d*\\.?\\d+")) {
+                if(buttonVal.equals("enter") && (message.length() == 5)){
+                    setState("select_gas");
+                    message = "";    
+                }
+                else if(buttonVal.equals("cancel")){
+                    setState("zipcode");
+                    message = "";
+                }
+                else if(buttonVal.matches("[-+]?\\d*\\.?\\d+")){
+                    if(Integer.parseInt(buttonVal) >= 0 &&
                             Integer.parseInt(buttonVal) <= 9)
                     {
                         if (message.length() != 5)
@@ -76,6 +79,7 @@ public class GasPumpMachine extends Actor
                 else if(buttonVal.equals("restart"))
                       setState("welcome");
                 break;
+
             case "select_gas":
                 if(buttonVal.equals("#87") || buttonVal.equals("#89") ||
                    buttonVal.equals("#91"))
@@ -84,13 +88,19 @@ public class GasPumpMachine extends Actor
                     setState("pump_gas");
                 }
                 break;
+
             case "pump_gas":
                 if(buttonVal.equals("gas_pump"))
                     setState("car_wash");
                 break;
+
             case "car_wash":
-                setState("print_receipt");
+                if(buttonVal.equals("yes"))
+                    setState("thankyou_3");
+                else if(buttonVal.equals("no"))
+                    setState("print_receipt");
                 break;
+            
             case "print_receipt":
                 if(buttonVal.equals("yes"))
                     setState("thankyou_1");
@@ -99,12 +109,18 @@ public class GasPumpMachine extends Actor
                 else
                     setState("print_receipt");
                 break;
-            case "thankyou_1":
+
+            case "thankyou_1":       // with print receipt
                 setState("welcome");
                 break;
-            case "thankyou_2":
+
+            case "thankyou_2":       // don't print receipt
                 setState("welcome");
                 break;
+
+            case "thankyou_3":      // with card wash and print receipt
+                setState("welcome");
+
             default:
                 setState("welcome");
                 break;
