@@ -44,6 +44,16 @@ public class GasPumpMachine extends Actor
                     setState("zipcode");
                     message = "";
                 }
+                else if(buttonVal.equals("member_card")){
+                    setState("membership");
+                    message = "";
+                }
+                break;
+            case "membership":
+                if(buttonVal.equals("credit_card"))
+                      setState("zipcode");
+                else if(buttonVal.equals("restart"))
+                      setState("welcome");
                 break;
             case "zipcode":
                 if (buttonVal.equals("enter") || buttonVal.equals("cancel") || buttonVal.matches("[-+]?\\d*\\.?\\d+")) {
@@ -52,7 +62,7 @@ public class GasPumpMachine extends Actor
                         message = "";    
                     }
                     else if(buttonVal.equals("cancel")){
-                        setState("welcome");
+                        setState("zipcode");
                         message = "";
                     }
                     else if(Integer.parseInt(buttonVal) >= 0 &&
@@ -63,6 +73,8 @@ public class GasPumpMachine extends Actor
                         // System.out.println(message);
                     }
                 }
+                else if(buttonVal.equals("restart"))
+                      setState("welcome");
                 break;
             case "select_gas":
                 if(buttonVal.equals("#87") || buttonVal.equals("#89") ||

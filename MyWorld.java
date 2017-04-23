@@ -37,6 +37,9 @@ public class MyWorld extends World
 
         Creditcard creditcard = new Creditcard();
         addObject(creditcard, 677, 400);
+        
+        MemberCard membercard = new MemberCard();
+        addObject(membercard, 677, 330);
 
         Gas87 gas87 = new Gas87();
         addObject(gas87, 320, 350);
@@ -68,7 +71,7 @@ public class MyWorld extends World
             monitorbuttons[i] = new MonitorButton("op" + Integer.toString(i+1));
             addObject(monitorbuttons[i],180, 100+ i*50);
         }
-        monitorbuttons[4] = new MonitorButton("fake");
+        monitorbuttons[4] = new MonitorButton("restart");
         monitorbuttons[5] = new MonitorButton("fake");
         monitorbuttons[6] = new MonitorButton("yes");
         monitorbuttons[7] = new MonitorButton("no");

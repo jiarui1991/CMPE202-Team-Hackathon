@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Display extends Actor
 {
-    private static String text = "Welcome!\nHello.";
+    private static String text = "Welcome to Gas Station\n Please insert your membership\n card or insert your credit card";
     private static int size = 40;
     private static Color color = Color.BLACK;
     private static Color background = new Color(0, 0, 0, 0); 
@@ -16,8 +16,8 @@ public class Display extends Actor
     public Display(){
         GreenfootImage image = new GreenfootImage(300, 300);
         image.drawRect(0,0, 299, 299);
-        GreenfootImage textImage = new GreenfootImage(text, size, color, background);
-        image.drawImage(textImage, 90, 100);
+        GreenfootImage textImage = new GreenfootImage(text, 20, color, background);
+        image.drawImage(textImage, 20, 100);
         setImage(image);
         
     }
@@ -27,7 +27,7 @@ public class Display extends Actor
         GreenfootImage image = getImage();
         image.clear();
         image.drawRect(0,0, 299, 299);
-        GreenfootImage textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
+        GreenfootImage textImage = new GreenfootImage("", size, color, background);
         
         World world = getWorld();
         for(GasPumpMachine gm: world.getObjects(GasPumpMachine.class))
@@ -36,16 +36,24 @@ public class Display extends Actor
             String message = gm.getMessage();
             switch(state){
                 case "welcome":
-                    textImage = new GreenfootImage("Welcome!\nHello.", size, color, background);
-                    image.drawImage(textImage, 90, 100);
+                    textImage = new GreenfootImage(text, 20, color, background);
+                    image.drawImage(textImage, 20, 100);
+                    break;
+                case "membership":
+                    textImage = new GreenfootImage("Welcome Dear Customer!\n Insert your credit card\n and enjoy your rewards", 20, color, background);
+                    image.drawImage(textImage, 50, 120);
+                    textImage = new GreenfootImage("Cancel", 20, color, background);
+                    image.drawImage(textImage, 240, 60);
                     break;
                 case "zipcode":
                     textImage = new GreenfootImage("Enter Zipcode\n" + message, size, color, background);
-                    image.drawImage(textImage, 40, 100);
+                    image.drawImage(textImage, 40, 120);
+                    textImage = new GreenfootImage("Cancel", 20, color, background);
+                    image.drawImage(textImage, 240, 60);
                     break;
                 case "select_gas":
                     textImage = new GreenfootImage("Select Gas Type" + message, size, color, background);
-                    image.drawImage(textImage, 20, 100);
+                    image.drawImage(textImage, 20, 120);
                     break;
                 case "pump_gas":
                     textImage = new GreenfootImage("Pumping Gas...\n" + message, size, color, background);
