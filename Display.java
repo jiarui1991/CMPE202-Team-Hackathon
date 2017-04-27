@@ -1,5 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+import javax.swing.JInternalFrame;
 /**
  * Write a description of class Display here.
  * 
@@ -10,6 +14,11 @@ public class Display extends Actor
 {
     private static String text = "Welcome to Gas Station\n Please insert your membership\n card or insert your credit card";
     private static int size = 40;
+    private static double price =0;
+    private static double bill =0;
+    private static long starttime =0;
+    private static long endtime =0;
+    private static long elapsed =0;
     private static Color color = Color.BLACK;
     private static Color background = new Color(0, 0, 0, 0); 
     /**Display constructor**/
@@ -56,10 +65,23 @@ public class Display extends Actor
                     image.drawImage(textImage, 20, 120);
                     break;
                 case "pump_gas":
+                    starttime = System.currentTimeMillis();
+                    price = gm.getType();
                     textImage = new GreenfootImage("Pumping Gas...\n" + message, size, color, background);
                     image.drawImage(textImage, 30, 100);
                     break;
-                case "car_wash":
+                case "fueling_start":
+                    endtime = System.currentTimeMillis();
+                    elapsed = endtime - starttime;// second counter 
+                    String num = Long.toString(elapsed);
+                    double n = (double)Math.floor(Integer.parseInt(num)*0.01*price); //count price
+                    bill = n/10;
+                    textImage = new GreenfootImage("Your price=...\n" +bill, size, color, background);
+                    image.drawImage(textImage, 30, 100); 
+                    break;
+                case "car_wash": 
+                    textImage = new GreenfootImage("Totally is: " + bill +"\n in "+price +"$/Gallon", 25, Color.BLUE, background);
+                    image.drawImage(textImage, 5, 50);
                     textImage = new GreenfootImage("Need a car wash?", size, color, background);
                     image.drawImage(textImage, 10, 100);
                     textImage = new GreenfootImage("Yes", 20, color, background);
@@ -76,6 +98,17 @@ public class Display extends Actor
                     image.drawImage(textImage, 260, 210);
                     break;
                 case "thankyou_1":
+                    Calendar calendar = Calendar.getInstance();
+                    int date = calendar.get(Calendar.DATE);
+                    int month = calendar.get(Calendar.MONTH);
+                    int year = calendar.get(Calendar.YEAR);
+                    String content = "GAS STATION\nBRAND \nSALE RECEIPT \n\nADDRESS 1 \nADDRESS 2";
+                    content +="\n\n\nDATE:" + date +"/"+month+"/"+year +"\n\nINVOICE# 10101010"+ "\n      CREDIT CARD\n";
+                    String gallon = String.format("%.2f", bill/price);
+                    content +="**************************\n"+"PUMP    GALLONS    TOTAL\n" + message+ "        "+ gallon + "            " +bill+"$";
+                    content += "\n Thank You! ";
+                    JOptionPane.showMessageDialog(new JInternalFrame(), content,"Gas Receipt", JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
                     textImage = new GreenfootImage("Thank you!\nPlease take\nyour receipt.", size, color, background);
                     image.drawImage(textImage, 40, 100);
                     break;
@@ -84,6 +117,17 @@ public class Display extends Actor
                     image.drawImage(textImage, 40, 100);
                     break;
                 case "thankyou_3":
+                    Calendar calendar2 = Calendar.getInstance();
+                    int date2 = calendar2.get(Calendar.DATE);
+                    int month2 = calendar2.get(Calendar.MONTH);
+                    int year2 = calendar2.get(Calendar.YEAR);
+                    String content2 = "GAS STATION\nBRAND \nSALE RECEIPT \n\nADDRESS 1 \nADDRESS 2";
+                    content2 +="\n\n\nDATE:" + date2 +"/"+month2+"/"+year2 +"\n\nINVOICE# 10101010"+ "\n      CREDIT CARD\n";
+                    String gallon2 = String.format("%.2f", bill/price);
+                    content2 +="*******************************\n"+"PUMP    GALLONS   CAR_WASH   TOTAL\n" + message+ "      "+ gallon2 + "           "+ "5.00$" +"          "+(bill+5)+"$";
+                    content2 += "\n Thank You! ";
+                    JOptionPane.showMessageDialog(new JInternalFrame(), content2,"Gas Receipt", JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
                     textImage = new GreenfootImage("Thank you!\n Enjoy your\n car wash", size, color, background);
                     image.drawImage(textImage, 40, 100);
                     break;
