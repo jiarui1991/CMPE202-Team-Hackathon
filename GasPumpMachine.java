@@ -92,11 +92,11 @@ public class GasPumpMachine extends Actor
                     message += buttonVal;
                     setState("pump_gas");
                     if (buttonVal.equals("#87"))
-                        gas_type = 0.77;
+                        gas_type = 2.77;
                     if (buttonVal.equals("#89"))
-                        gas_type = 0.97;
+                        gas_type = 2.97;
                     if (buttonVal.equals("#91"))
-                        gas_type = 1.2;
+                        gas_type = 3.2;
                 }
                 break;
 
