@@ -10,7 +10,8 @@ public class GasPumpMachine extends Actor
 {
     private static String state = "welcome"; //state detemines display content
     private static String message = "";
-
+    private static double gas_type = 0; //set the gas unit price 
+    private static long starttime =0;
     String buttonVal = "";
     public GasPumpMachine(){
         GreenfootImage image = getImage() ;
@@ -30,6 +31,10 @@ public class GasPumpMachine extends Actor
     
     public String getState(){
         return state;
+    }
+   
+    public double getType(){
+        return gas_type;
     }
 
     public String getMessage(){
@@ -86,14 +91,27 @@ public class GasPumpMachine extends Actor
                 {
                     message += buttonVal;
                     setState("pump_gas");
+                    if (buttonVal.equals("#87"))
+                        gas_type = 0.77;
+                    if (buttonVal.equals("#89"))
+                        gas_type = 0.97;
+                    if (buttonVal.equals("#91"))
+                        gas_type = 1.2;
                 }
                 break;
 
             case "pump_gas":
-                if(buttonVal.equals("gas_pump"))
-                    setState("car_wash");
+                if(buttonVal.equals("gas_pump")) {
+                    setState("fueling_start");
+                }
                 break;
-
+               
+            case "fueling_start":
+                if(buttonVal.equals("gas_pump")) {
+                    setState("car_wash");
+                }
+                break;
+       
             case "car_wash":
                 if(buttonVal.equals("yes"))
                     setState("thankyou_3");
@@ -102,7 +120,7 @@ public class GasPumpMachine extends Actor
                 break;
             
             case "print_receipt":
-                if(buttonVal.equals("yes"))
+                if(buttonVal.equals("yes")) 
                     setState("thankyou_1");
                 else if(buttonVal.equals("no"))
                     setState("thankyou_2");
