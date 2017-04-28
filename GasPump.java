@@ -11,7 +11,7 @@ public class GasPump extends Actor
     public GasPump(){
         GreenfootImage image = getImage();
         image.scale( 120, 120 );  
-        image.drawRect(0,0,119,119);
+        //image.drawRect(0,0,119,119);
         setImage(image);
     }
     /**

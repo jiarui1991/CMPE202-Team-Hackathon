@@ -15,7 +15,7 @@ public class GasPumpMachine extends Actor
     String buttonVal = "";
     public GasPumpMachine(){
         GreenfootImage image = getImage() ;
-        image.scale( 400, 400 ) ;
+        image.scale( 100, 100 ) ;
         message = "";
         state = "welcome";
     }

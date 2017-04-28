@@ -17,6 +17,7 @@ public class Gas91 extends GasTypeButton
         image.scale( 40, 40 );  
         image.drawRect(0,0,39,39);
         setImage(image);
+        
     }
 
     public void act() 
